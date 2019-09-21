@@ -3,9 +3,14 @@ Simple OSC server for MaryTTS Text to Speech Synthesis Platform
 
 # Run
 
-Run server using:
+Run server in port 9000:
 ```
-gradlew run --console=plain
+gradlew run --console=plain"
+```
+
+or in custom port:
+```
+gradlew run --console=plain --args="8004"
 ```
 
 or create distributable under /build/distributions
