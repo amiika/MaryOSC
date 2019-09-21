@@ -8,7 +8,7 @@ Run server using:
 gradlew run --console=plain
 ```
 
-Create distributable under /build/distributions
+or create distributable under /build/distributions
 ```
 gradlew build
 ```
