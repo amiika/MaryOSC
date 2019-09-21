@@ -34,3 +34,7 @@ gradlew build
 **/mary/locale**
 
 1 Argument: string. Changes locale. List available locales using '-l' in console.
+
+# Credits
+
+Thank [mary](https://github.com/marytts/marytts), obviously.
