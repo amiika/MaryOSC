@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'maryosc'
+version '0.1'
+mainClassName = "maryosc.MaryOSC"
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+run {
+    standardInput = System.in
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'de.dfki.mary', name: 'marytts', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-languages', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-en', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-ru', version: '5.2'
+    runtime group: 'de.dfki.mary', name: 'marytts-lang-fr', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-de', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-tr', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-lb', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-sv', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-te', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-it', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-signalproc', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-cmu-slt-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-pavoque-neutral-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-prudence-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-enst-dennys-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-upmc-pierre-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-istc-lucia-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-upmc-jessica-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-poppy-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-spike-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-ot-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-cmu-bdl-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-pavoque-neutral-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-enst-camille-hsmm', version: '5.2'
+   // compile group: 'de.dfki.mary', name: 'voice-cmu-nk-hsmm', version: '5.2' // Not working?
+    compile group: 'de.dfki.mary', name: 'voice-bits1-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-bits3-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-enst-dennys-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-cmu-rms-hsmm', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'voice-dfki-obadiah-hsmm', version: '5.2'
+    compile group: 'com.illposed.osc', name: 'javaosc-core', version: '0.6'
+}

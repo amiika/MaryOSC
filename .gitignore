@@ -1,0 +1,10 @@
+# Gradle
+.gradle/
+build/
+
+# Idea
+*.iml
+.idea/
+
+# Mary
+log/
