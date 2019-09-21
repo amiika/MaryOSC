@@ -37,4 +37,4 @@ gradlew build
 
 # Credits
 
-Thank [mary](https://github.com/marytts/marytts), obviously.
+Thank [Mary](https://github.com/marytts/marytts), obviously.
