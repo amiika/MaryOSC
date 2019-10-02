@@ -3,14 +3,13 @@ package maryosc;
 import java.io.IOException;
 import java.util.Scanner;
 
-import com.illposed.osc.OSCMessage;
 import com.illposed.osc.messageselector.OSCPatternAddressMessageSelector;
 import com.illposed.osc.transport.udp.OSCPortIn;
 
 public class MaryOSC {
 
     protected static OSCPortIn receiver;
-    private static MaryUtil mary = new MaryUtil("dfki-poppy-hsmm", null, false);
+    private static MaryUtil mary = new MaryUtil("dfki-poppy-hsmm");
     private static MaryOSCMessageListener listener = new MaryOSCMessageListener(mary);
 
     public static void main(String args[]) {
@@ -25,9 +24,8 @@ public class MaryOSC {
                 receiver = new OSCPortIn(port);
             } catch (IOException e) {
                 e.printStackTrace();
+                throw new RuntimeException("MaryTTS init failed! Missing dependencies? Try: gradlew build --refresh-dependencies");
             }
-
-            OSCMessage message = new OSCMessage("/mary/");
 
             receiver.getDispatcher().addListener(new OSCPatternAddressMessageSelector("/mary/voice"), listener);
             receiver.getDispatcher().addListener(new OSCPatternAddressMessageSelector("/mary/locale"), listener);
@@ -82,6 +80,7 @@ public class MaryOSC {
                 System.out.println("-----------------");
             } else if (input.equals("-d")) {
                 listener.setDebug();
+                System.out.println("Receiver is listening: "+receiver.isListening());
                 mary.setDebug();
             } else if (input.equals("-e")) {
                 System.out.println("------------------EFFECTS--------------------------------------");

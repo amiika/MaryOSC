@@ -23,7 +23,7 @@ dependencies {
     compile group: 'de.dfki.mary', name: 'marytts-languages', version: '5.2'
     compile group: 'de.dfki.mary', name: 'marytts-lang-en', version: '5.2'
     compile group: 'de.dfki.mary', name: 'marytts-lang-ru', version: '5.2'
-    runtime group: 'de.dfki.mary', name: 'marytts-lang-fr', version: '5.2'
+    compile group: 'de.dfki.mary', name: 'marytts-lang-fr', version: '5.2'
     compile group: 'de.dfki.mary', name: 'marytts-lang-de', version: '5.2'
     compile group: 'de.dfki.mary', name: 'marytts-lang-tr', version: '5.2'
     compile group: 'de.dfki.mary', name: 'marytts-lang-lb', version: '5.2'

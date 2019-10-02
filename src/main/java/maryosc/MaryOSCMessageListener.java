@@ -34,18 +34,20 @@ public class MaryOSCMessageListener implements OSCMessageListener {
         String address = message.getAddress();
         OSCMessageInfo info = message.getInfo();
         List<Object> arguments = message.getArguments();
-        if (this.debug) System.out.println("Message "+messageReceivedCount+" to " + address+" with "+arguments.size()+" argument(s)");
+        if (this.debug) {
+            System.out.println("Message " + this.messageReceivedCount + " to " + address + " with " + arguments.size() + " argument(s)");
+        }
         if (arguments.size() > 0) {
             Object firstParameter = arguments.get(0);
-            if (address.contains("save")) {
-                if (arguments.size()==2) {
+            if (address.equals("/mary/save")) {
+                if (arguments.size() == 2) {
                     String path = (String) firstParameter;
                     String input = (String) arguments.get(1);
-                    mary.save(path,input);
+                    mary.save(path, input);
                 } else {
                     throw new IllegalArgumentException("Expected two string arguments!");
                 }
-            } else if (address.contains("voice")) {
+            } else if (address.equals("/mary/voice")) {
                 if (firstParameter instanceof String) {
                     String text = (String) firstParameter;
                     mary.setVoice(text);
@@ -55,21 +57,21 @@ public class MaryOSCMessageListener implements OSCMessageListener {
                 } else {
                     throw new IllegalArgumentException("Voice argument should be int or string");
                 }
-            } else if (address.contains("effects")) {
+            } else if (address.equals("/mary/effects")) {
                 if (firstParameter instanceof String) {
                     String word = (String) firstParameter;
                     mary.setAudioEffects(word);
                 } else {
                     throw new IllegalArgumentException("Effect argument should be string");
                 }
-            } else if (address.contains("say")) {
+            } else if (address.equals("/mary/say")) {
                 if (firstParameter instanceof String) {
                     String word = (String) firstParameter;
                     mary.say(word);
                 } else {
                     throw new IllegalArgumentException("Argument should be string!");
                 }
-            } else if (address.contains("locale")) {
+            } else if (address.equals("/mary/locale")) {
                 if (firstParameter instanceof String) {
                     String locale = (String) firstParameter;
                     mary.setLocale(locale);
@@ -79,5 +81,4 @@ public class MaryOSCMessageListener implements OSCMessageListener {
             }
         }
     }
-
 }

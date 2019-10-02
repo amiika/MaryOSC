@@ -1,10 +1,7 @@
 package maryosc;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -29,22 +26,18 @@ public class MaryUtil {
     private Locale loc;
     private String[] voices;
 
-    public MaryUtil(String voiceName,
-                    String locale,
-                    boolean debug) {
-        this.debug = debug;
+    public MaryUtil(String voiceName) {
         try {
             marytts = new LocalMaryInterface();
             this.voices = getSortedVoices();
-            this.loc = setLocale(locale);
             if (voiceName == null) {
                 voiceName = voices[0];
             }
-            if (debug) System.out.println("Setting voice: " + voiceName);
             marytts.setVoice(voiceName);
             ap = new AudioPlayer();
         } catch (MaryConfigurationException ex) {
             ex.printStackTrace();
+            throw new RuntimeException("MaryTTS init failed! Missing dependencies? Try: gradlew build --refresh-dependencies");
         }
     }
 
@@ -81,6 +74,9 @@ public class MaryUtil {
 
     private String[] getSortedVoices() {
         Set<String> voiceSet = this.marytts.getAvailableVoices();
+        if(voiceSet.size()<1) {
+            throw new RuntimeException("No voices available! Missing dependencies? Try: gradlew build --refresh-dependencies");
+        }
         String[] voices = voiceSet.toArray(new String[voiceSet.size()]);
         Arrays.sort(voices);
         return voices;
