@@ -1,6 +1,10 @@
 # MaryOSC
 Simple OSC server for MaryTTS Text to Speech Synthesis Platform
 
+# Requirements
+
+Java JDK 1.8
+
 # Run
 
 Run server in port 9000:
